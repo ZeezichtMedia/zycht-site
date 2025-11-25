@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Testimonial from '../components/Testimonial.astro';
+
+const services = [
+  {
+    title: 'Bedrijfsfinanciering',
+    description: 'Advisering en bemiddeling bij start, groei of aankoop. Wij kijken verder dan bancaire financiering en vinden de juiste mix.',
+    href: '/diensten/bedrijfsfinanciering',
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+  },
+  {
+    title: 'Bedrijfsadvisering',
+    description: 'Kritische sparringpartner voor strategische keuzes, investeringen of zwaar weer. Wij helpen u weer op koers.',
+    href: '/diensten/bedrijfsadvisering',
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+  },
+  {
+    title: 'Financiële Planning',
+    description: 'Integrale benadering waar zakelijk en privé samenkomen. Inzicht in uw financiële toekomst en levensdoelen.',
+    href: '/diensten/financiele-planning',
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
+  },
+  {
+    title: 'Administratieve Dienstverlening',
+    description: 'Van boekhouding tot jaarrekening. Geen noodzakelijk kwaad, maar waardevol inzicht voor uw beslissingen.',
+    href: '/diensten/administratieve-dienstverlening',
+    icon: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+  }
+];
+
+const testimonials = [
+  {
+    quote: "Margo is aimabel, rustig en zeer analytisch. Ze stelt de juiste vragen.",
+    author: "Marius Verschuuren",
+    role: "Thijs Logistiek"
+  },
+  {
+    quote: "Recht door zee, komt afspraken na. Financiering binnen 2 weken geregeld.",
+    author: "Alex en Monique Koenders",
+    role: "Schildersbedrijf"
+  },
+  {
+    quote: "Enthousiaste, betrokken en zeer ervaren bedrijfskundige.",
+    author: "Jannie van den Berg",
+    role: "MKBDoorgaan.nl"
+  }
+];
+---
+
+<Layout title="Home">
+  <Hero />
+
+  <!-- Services Section -->
+  <section class="py-20 bg-surface-alt">
+    <div class="container-custom mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="mb-4">Onze <span class="text-accent">Diensten</span></h2>
+        <p class="text-slate-600 text-lg">
+          Wij bieden een integrale aanpak voor ondernemers, waarbij we verder kijken dan de cijfers alleen.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {services.map(service => (
+          <ServiceCard {...service}>
+            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+            </svg>
+          </ServiceCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Teaser -->
+  <section class="py-20">
+    <div class="container-custom mx-auto">
+      <div class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="lg:w-1/2">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Placeholder for Margo's photo - using a professional business placeholder for now -->
+            <img 
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Margo Huijerjans" 
+              class="w-full h-auto object-cover"
+            />
+            <div class="absolute inset-0 bg-primary/10"></div>
+          </div>
+        </div>
+        <div class="lg:w-1/2">
+          <h2 class="mb-6">Wie is <span class="text-accent">Margo Huijerjans?</span></h2>
+          <p class="text-slate-600 mb-6 leading-relaxed">
+            Na 16 jaar ervaring in de bancaire sector heb ik in 2015 ZYCHT opgericht. Mijn drijfveer? De behoefte om ondernemers écht onafhankelijk te kunnen adviseren.
+          </p>
+          <p class="text-slate-600 mb-8 leading-relaxed">
+            Ik geloof dat het MKB de motor van onze economie is. Of het nu gaat om groei, investeringen of zwaar weer: ik sta naast de ondernemer. Betrokken, integer en altijd oplossingsgericht.
+          </p>
+          
+          <div class="flex gap-4">
+            <a href="/over-ons" class="btn btn-primary">Lees mijn verhaal</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-primary text-white relative overflow-hidden">
+    <!-- Decorative background elements -->
+    <div class="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+
+    <div class="container-custom mx-auto relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-white mb-4">Wat <span class="text-accent">klanten</span> zeggen</h2>
+        <p class="text-slate-300">Vertrouwen is de basis van onze samenwerking.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map(t => (
+          <Testimonial {...t} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-surface-alt">
+    <div class="container-custom mx-auto text-center">
+      <h2 class="mb-6 max-w-2xl mx-auto">Klaar voor een goed <span class="text-accent">vooruitzicht?</span></h2>
+      <p class="text-slate-600 mb-10 max-w-2xl mx-auto text-lg">
+        Laten we kennismaken. In een vrijblijvend gesprek bespreken we wat ZYCHT voor u en uw onderneming kan betekenen.
+      </p>
+      <a href="/contact" class="btn btn-accent text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        Neem contact op
+      </a>
+    </div>
+  </section>
+</Layout>

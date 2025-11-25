@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Bedrijfsfinanciering',
+    description: 'Advisering en bemiddeling bij start, groei of aankoop. Wij kijken verder dan bancaire financiering en vinden de juiste mix.',
+    href: '/diensten/bedrijfsfinanciering',
+    icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+  },
+  {
+    title: 'Bedrijfsadvisering',
+    description: 'Kritische sparringpartner voor strategische keuzes, investeringen of zwaar weer. Wij helpen u weer op koers.',
+    href: '/diensten/bedrijfsadvisering',
+    icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'
+  },
+  {
+    title: 'Financiële Planning',
+    description: 'Integrale benadering waar zakelijk en privé samenkomen. Inzicht in uw financiële toekomst en levensdoelen.',
+    href: '/diensten/financiele-planning',
+    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'
+  },
+  {
+    title: 'Administratieve Dienstverlening',
+    description: 'Van boekhouding tot jaarrekening. Geen noodzakelijk kwaad, maar waardevol inzicht voor uw beslissingen.',
+    href: '/diensten/administratieve-dienstverlening',
+    icon: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+  }
+];
+---
+
+<Layout title="Diensten" description="Ontdek de diensten van ZYCHT: Bedrijfsfinanciering, Bedrijfsadvisering, Financiële Planning en Administratieve Dienstverlening.">
+  <section class="bg-primary text-white py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-primary-dark to-primary opacity-90"></div>
+    <div class="container-custom mx-auto relative z-10 text-center">
+      <h1 class="text-4xl md:text-5xl mb-4">Onze <span class="text-accent">Diensten</span></h1>
+      <p class="text-xl text-slate-300 max-w-2xl mx-auto">
+        Wij bieden een integrale aanpak voor ondernemers, waarbij we verder kijken dan de cijfers alleen.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="container-custom mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {services.map(service => (
+          <ServiceCard {...service}>
+            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
+            </svg>
+          </ServiceCard>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
